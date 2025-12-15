@@ -4,35 +4,93 @@
   <meta charset="UTF-8" />
   <title>Internal Video Publishing Tool</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 40px auto;
+      line-height: 1.6;
+    }
+    .box {
+      border: 1px solid #ddd;
+      padding: 16px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+    }
+    button {
+      padding: 10px 16px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    .muted {
+      color: #666;
+      font-size: 13px;
+    }
+  </style>
 </head>
 <body>
-  <h1>Internal Video Publishing Tool</h1>
 
+<h1>Internal Video Publishing Tool</h1>
+
+<p>
+This internal web tool allows a user to authenticate with their own TikTok account
+and upload videos using TikTok’s official APIs.
+</p>
+
+<div class="box">
+  <h2>1. TikTok Login</h2>
   <p>
-    This is an internal tool designed to automate video uploads to a user's own
-    TikTok account using TikTok’s official APIs.
+    Users authenticate via TikTok Login Kit to grant permission to upload content.
   </p>
+  <button disabled>Login with TikTok (Sandbox)</button>
+  <p class="muted">
+    Uses: Login Kit + scope <code>user.info.basic</code>
+  </p>
+</div>
 
+<div class="box">
+  <h2>2. User Information</h2>
   <p>
-    The application is intended for internal use only. It does not provide
-    public-facing services, social features, or content discovery.
+    After login, basic profile information is retrieved from TikTok.
   </p>
-
-  <h2>How it works</h2>
   <ul>
-    <li>Users authenticate via TikTok OAuth</li>
-    <li>The app uploads videos on behalf of the authenticated user</li>
-    <li>All content is published only to the user’s own TikTok account</li>
+    <li>Username: sandbox_user</li>
+    <li>User ID: 123456789</li>
   </ul>
+  <p class="muted">
+    Uses: <code>user.info.basic</code>
+  </p>
+</div>
 
-  <h2>Legal</h2>
-  <ul>
-    <li><a href="terms-of-service.html">Terms of Service</a></li>
-    <li><a href="privacy-policy.html">Privacy Policy</a></li>
-  </ul>
+<div class="box">
+  <h2>3. Upload Video to TikTok</h2>
+  <p>
+    The user selects a video file and publishes it to their own TikTok account.
+  </p>
+  <input type="file" disabled />
+  <br /><br />
+  <button disabled>Upload & Publish</button>
+  <p class="muted">
+    Uses: Content Posting API + scope <code>video.upload</code>
+  </p>
+</div>
 
-  <footer>
-    <p>© 2025 Internal Video Publishing Tool</p>
-  </footer>
+<div class="box">
+  <h2>4. Share & Data Access</h2>
+  <p>
+    The tool may optionally allow users to share published videos or export their data.
+  </p>
+  <p class="muted">
+    Uses: Share Kit, Data Portability API
+  </p>
+</div>
+
+<hr />
+
+<ul>
+  <li><a href="terms-of-service.html">Terms of Service</a></li>
+  <li><a href="privacy-policy.html">Privacy Policy</a></li>
+</ul>
+
 </body>
 </html>
